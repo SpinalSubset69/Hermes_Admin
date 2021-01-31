@@ -1,0 +1,29 @@
+<div class="ui container upload-container">
+  <form class="ui form">
+    <div class="field arrow-container">
+      <img (click)="goMenu()" src="../../../assets/arrow.png"alt="">
+      <p>Regresar</p>
+    </div>
+    <div class="field">
+      <label>Título de la nota:</label>
+      <input type="text" name="title" placeholder="Titulo">
+    </div>
+    <div class="field">
+      <label>Aelanto de la Nota:</label>
+      <input type="text" name="summary" placeholder="Adelanto">
+    </div>
+    <div class="field">
+      <label>Contenido de la nota:</label>
+      <textarea name="content" id="" cols="30" rows="10"></textarea>
+    </div>
+    <div class="field">
+        <label>Autor de la nota:</label>
+        <input type="text" name="author" placeholder="Autor">
+    </div>
+    <div class="field">
+        <label>Imagen:</label>
+        <input type="file" name="image">
+    </div>
+    <button class="ui fluid primary button" type="submit">Enviar</button>
+  </form>
+</div>

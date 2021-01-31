@@ -1,0 +1,19 @@
+.upload-container{
+    margin-bottom: 25px;
+}
+
+.arrow-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 10%;
+}
+
+.arrow-container img{
+    cursor: pointer;
+    width: 75px;
+    height: 75px;
+}
+
+.arrow-container p{
+    align-self: center;
+}

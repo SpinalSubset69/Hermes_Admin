@@ -1,0 +1,47 @@
+.nav-container{    
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 25px;
+    height: 75px;
+    width: 80%;   
+    align-content: center;
+    margin-bottom: 25px;
+}
+
+.logo{
+    width: 30%;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.nav-container img{
+    border-radius: 50px;
+    width: 75px;
+    height: 75px;
+    margin-left: 50px;
+}
+
+.nav-container p{
+    align-self: center;
+    font-size: 26px;
+}
+
+
+.nav-search{
+    margin-right: 150px;
+    justify-content: center;
+  }
+  
+  .nav-search input{
+    border: 2.5px solid #e3e3e3;
+    padding: 0 10px 0 30px;
+    width: 250px;
+    height: 30px;
+    border-radius: 15px;
+    outline: none;
+    font-size: .8rem;
+  }
+  
+  

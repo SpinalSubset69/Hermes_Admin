@@ -1,0 +1,7 @@
+.edit{
+    cursor: pointer;
+}
+
+.edit:hover{
+    box-shadow: 0px 5px 10px 5px rgba(0,0,0, .5);
+}
