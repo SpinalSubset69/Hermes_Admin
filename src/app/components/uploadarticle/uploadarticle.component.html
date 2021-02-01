@@ -1,29 +1,33 @@
 <div class="ui container upload-container">
-  <form class="ui form">
+  <div class="ui form">
     <div class="field arrow-container">
       <img (click)="goMenu()" src="../../../assets/arrow.png"alt="">
       <p>Regresar</p>
     </div>
     <div class="field">
       <label>Título de la nota:</label>
-      <input type="text" name="title" placeholder="Titulo">
+      <input type="text" (keyup)="onTitleChange($event)" placeholder="Titulo">
     </div>
     <div class="field">
-      <label>Aelanto de la Nota:</label>
-      <input type="text" name="summary" placeholder="Adelanto">
+      <label>Adelanto de la Nota:</label>
+      <input type="text" (keyup)="onSummaryChange($event)" placeholder="Adelanto">
     </div>
     <div class="field">
       <label>Contenido de la nota:</label>
-      <textarea name="content" id="" cols="30" rows="10"></textarea>
+      <textarea id="content" (keyup)="onContentChange($event)" cols="30" rows="10"></textarea>
+    </div>
+    <div class="field">
+      <label>Categoría:</label>
+        <input type="text" (keyup)="onCategoryChange($event)" placeholder="Autor">
     </div>
     <div class="field">
         <label>Autor de la nota:</label>
-        <input type="text" name="author" placeholder="Autor">
+        <input type="text" (keyup)="onAuthorChange($event)" placeholder="Autor">
     </div>
     <div class="field">
         <label>Imagen:</label>
-        <input type="file" name="image">
+        <input type="file" name="articleImage" id="input" value="image">
     </div>
-    <button class="ui fluid primary button" type="submit">Enviar</button>
-  </form>
+    <button (click)="submitArticle()" class="ui fluid primary button">Enviar</button>
+  </div>
 </div>
