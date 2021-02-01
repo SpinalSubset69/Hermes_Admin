@@ -1,0 +1,46 @@
+.item-container{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.article{
+  border-radius: 10px;
+  width: 100%;
+  border: .7px solid #cccccc;
+}
+
+.article:hover{
+  cursor: pointer;
+  box-shadow: 0 5px 10px 5px rgba(0, 0, 0, .5);
+}
+.article img{
+  border-radius: 50px;
+  padding: 10px;
+  width: 100px;
+  height: 100px;
+}
+
+.article a{
+  margin: 10px;
+}
+
+.header{
+  padding: 10px;
+  font-size: 12px;
+  text-align: justify;
+}
+
+.content{
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: justify;
+}
+
+.image{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+

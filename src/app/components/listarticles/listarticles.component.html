@@ -1,4 +1,20 @@
 <div class="ui container">
+
+  <div class="arrow-container">
+    <div class="arrow">
+      <img (click)="goToHome()"  src="../../../assets/arrow.png"alt="">
+      <p>Regresar</p>
+    </div>
+   <div class="input">
+    <input class="searcher" type="text">
+   </div>
+
+  </div>
+
+  <div class="ui container">
+    <h1>Noticias:</h1>
+  </div>
+
    <div class="list-container">
        <app-list [article]="article" *ngFor="let article of allArticles"></app-list>
    </div>

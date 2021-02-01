@@ -19,12 +19,13 @@ author:string;
 category:string;
 image:any;
 article: Article;
+popup:boolean = false;
 
   constructor(private _Router:Router,
              private _ArticleService:ArticlesService) { }
 
   ngOnInit(): void {
-    
+
   }
 
   onTitleChange(event){
@@ -55,9 +56,12 @@ article: Article;
   submitArticle(){
     this.image = document.getElementById('input');
     let form = new FormData();
-    
-    form.set("image", this.image.files[0] ,"image")
 
+    if(!this.title || !this.summary || !this.content || !this.author || !this.category){
+      
+    }
+    form.set("image",this.image.files[0])
+    console.log(this.image.files[0]);
     this.article = {
       title: this.title,
       summary: this.summary,
@@ -68,16 +72,18 @@ article: Article;
 
     this._ArticleService.saveArticle(this.article).subscribe((response:any) => {
       console.log(response);
-      this._ArticleService.uploadImage(response.newStored._id, form).subscribe(response =>{
-        console.log(response);        
-      });
+      if(response.status === "Exitoso"){
+        this._ArticleService.uploadImage(response.newStored._id, form).subscribe((response:any) =>{
+          console.log(response);
+          if(response.status === "Exitoso"){
+            this.popup = true;            
+          }
+        });
+      }
     });
-
-    
-  
   }
 
- 
+
 
   goMenu(){
     this._Router.navigate(['home']);

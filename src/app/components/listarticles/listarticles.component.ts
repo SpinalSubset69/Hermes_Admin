@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit} from '@angular/core';
 import { ArticlesService } from '../../service/articles.service';
 
@@ -8,7 +9,8 @@ import { ArticlesService } from '../../service/articles.service';
 })
 export class ListarticlesComponent implements OnInit {
   allArticles:any = [];
-  constructor(private _ArticlesService: ArticlesService) { }
+  constructor(private _ArticlesService: ArticlesService,
+              private _Router:Router) { }
 
   ngOnInit(): void {
     this._ArticlesService.getAllNews().subscribe((response:any) => {
@@ -16,5 +18,10 @@ export class ListarticlesComponent implements OnInit {
       console.log(this.allArticles)
     });
   }
+
+  goToHome(){
+    this._Router.navigate(['home']);
+  }
+
 
 }

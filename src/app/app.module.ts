@@ -12,6 +12,7 @@ import { DeleteComponent } from './components/delete/delete.component';
 import { UploadComponent } from './upload/upload.component';
 import { ListarticlesComponent } from './components/listarticles/listarticles.component';
 import { ListComponent } from './components/list/list.component';
+import { EditarticleComponent } from './components/editarticle/editarticle.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ListComponent } from './components/list/list.component';
     DeleteComponent,
     UploadComponent,
     ListarticlesComponent,
-    ListComponent
+    ListComponent,
+    EditarticleComponent
   ],
   imports: [
     BrowserModule,

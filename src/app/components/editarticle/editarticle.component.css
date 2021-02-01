@@ -1,0 +1,44 @@
+.noticia-container{
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+.noticia-container img{
+  margin: 0 auto;
+  border-radius: 15px;
+  width: 600px;
+  height: 300px;
+}
+
+.title{
+margin-top: 15px;
+padding: 20px;
+}
+
+.summary p {
+  font-size: 20px;
+  text-align: justify;
+}
+
+.content{
+  margin-top: 15px;
+  font-size: 18px;
+  text-align: justify;
+}
+
+.footer{
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+
+}
+
+.noticia-container button{
+  background: #258d19;
+  border-radius: 50px;
+  margin: 0 auto;
+  width: 70%;
+  height: 50px;
+}

@@ -26,6 +26,10 @@ export class ArticlesService {
   uploadImage(id, formdata){
     return this._HttpClient.post(`http://localhost:3000/api/uploadImage/${id}`, formdata);
   }
+
+  getArticle(id){
+    return this._HttpClient.get(`http://localhost:3000/api/getNew/${id}`)
+  }
 }
 
 export interface Article{

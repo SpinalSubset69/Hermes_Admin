@@ -1,16 +1,29 @@
-<div class="ui container upload-container">
-  <div class="ui form">
-    <div class="nav">
-      <div class="field arrow-container">
-        <img (click)="goMenu()" src="../../../assets/arrow.png"alt="">
-        <p>Regresar</p>
+<div class="ui container">
+  <div *ngIf="noticia" class="noticia-container">
+    <img [src]="getImage()" alt="">
+    <div class="title">
+      <h1>{{ article.title }}</h1>
+    </div>
+    <div class="summary">
+      <p>{{ article.summary }}</p>
+    </div>
+    <div id="content" class="content">
+      <p></p>
+    </div>
+    <div class="footer">
+      <div class="author">
+        <p>Autor: {{ article.author }}</p>
       </div>
-      <div *ngIf="popup" class="pop-up">
-        <div class="message">
-          <p>Noticia subida con éxito a la base de datos.</p>
-        </div>
+      <div class="date">
+        <p>Fecha: {{article.date}}</p>
       </div>
     </div>
+    <button>Editar</button>
+  </div>
+
+
+
+  <div *ngIf="editar" class="ui form">
     <div class="field">
       <label>Título de la nota:</label>
       <input type="text" (keyup)="onTitleChange($event)" placeholder="Titulo">
@@ -35,8 +48,6 @@
         <label>Imagen:</label>
         <input type="file" name="articleImage" id="input" value="image">
     </div>
-    <button (click)="submitArticle()" class="ui fluid primary button">Enviar</button>
+    <button (click)="updateArticle()" class="ui fluid primary button">Enviar</button>
   </div>
 </div>
-
-

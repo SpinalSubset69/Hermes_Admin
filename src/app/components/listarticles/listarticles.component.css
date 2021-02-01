@@ -1,0 +1,39 @@
+.list-container{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em;
+  padding: 40px;
+}
+
+
+.arrow-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.arrow{
+  display: flex;
+}
+
+.arrow-container img{
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.arrow-container p{
+  align-self: center;
+}
+
+h1{
+  margin: 0 auto;
+}
+
+.searcher{
+  outline: none;
+  border-radius: 50px;
+  width: 200px;
+  height: 30px;
+  padding: 10px;
+}

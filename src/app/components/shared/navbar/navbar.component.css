@@ -1,10 +1,10 @@
-.nav-container{    
+.nav-container{
     display: flex;
     justify-content: center;
     margin: 0 auto;
     margin-top: 25px;
     height: 75px;
-    width: 80%;   
+    width: 80%;
     align-content: center;
     margin-bottom: 25px;
 }
@@ -33,7 +33,7 @@
     margin-right: 150px;
     justify-content: center;
   }
-  
+
   .nav-search input{
     border: 2.5px solid #e3e3e3;
     padding: 0 10px 0 30px;
@@ -43,5 +43,4 @@
     outline: none;
     font-size: .8rem;
   }
-  
-  
+
