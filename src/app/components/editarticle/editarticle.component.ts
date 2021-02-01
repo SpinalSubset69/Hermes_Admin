@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ArticlesService } from '../../service/articles.service';
 
 @Component({
@@ -19,6 +19,9 @@ export class EditarticleComponent implements OnInit {
   author:string;
   category:string;
   content_split:any;
+  image:any;
+  popup:boolean = false;
+  warning:boolean = false;
 
   onTitleChange(event){
     this.title = event.target.value;
@@ -50,13 +53,58 @@ export class EditarticleComponent implements OnInit {
   }
 
   updateArticle(){
+    this.image = document.getElementById('input');
+    let form = new FormData();
+    form.set("image",this.image.files[0])
+    console.log(this.image.files[0]);
 
+    if(!this.title || !this.summary || !this.content || !this.image.files[0] || !this.author || !this.category){
+      this.warning = true;
+    }else{
+      this.article = {
+        title: this.title,
+        summary: this.summary,
+        content: this.content,
+        author: this.author,
+        category: this.category
+      }
+    this._ArticleService.modifyArticle(this.id, this.article).subscribe((response:any) => {
+      console.log(response)
+      if(response.status === 'Exitoso'){
+        this._ArticleService.uploadImage(this.id, form).subscribe((response:any) => {
+          if(response.status === 'Exitoso'){
+            this.popup = true;
+          }
+        })
+      }
+    });
+    }
+
+
+
+  }
+
+  flipEdit(){
+    this.noticia = false;
+    this.editar = true;
+  }
+  closePopUp(){
+  this.popup = false;
+  }
+
+  closeWarning(){
+  this.warning = false;
+  }
+
+  goList(){
+    this._Router.navigate(['listArticles']);
   }
 
 
 
   constructor(private _ActivatedRoute: ActivatedRoute,
-              private _ArticleService: ArticlesService) { }
+              private _ArticleService: ArticlesService,
+              private _Router:Router) { }
 
   ngOnInit(): void {
     this._ActivatedRoute.params.subscribe(params => {

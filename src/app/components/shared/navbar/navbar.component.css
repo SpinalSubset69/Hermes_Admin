@@ -11,16 +11,16 @@
 
 .logo{
     width: 30%;
-    cursor: pointer;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
+    display: flex ;
+
 }
 
 .nav-container img{
+  cursor: pointer;
     border-radius: 50px;
-    width: 75px;
-    height: 75px;
-    margin-left: 50px;
+    width: 85px;
+    height: 85px;
+    margin-right: 20px
 }
 
 .nav-container p{
@@ -28,19 +28,4 @@
     font-size: 26px;
 }
 
-
-.nav-search{
-    margin-right: 150px;
-    justify-content: center;
-  }
-
-  .nav-search input{
-    border: 2.5px solid #e3e3e3;
-    padding: 0 10px 0 30px;
-    width: 250px;
-    height: 30px;
-    border-radius: 15px;
-    outline: none;
-    font-size: .8rem;
-  }
 

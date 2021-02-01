@@ -35,7 +35,7 @@
   background-color: #258d19;
   width: 40%;
   height: 75px;
-
+  cursor: pointer;
   animation-name: popUp;
   animation-duration: 5s;
 
@@ -60,3 +60,29 @@
   font-size: 20px;
 }
 
+.warning{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.warning-message{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50px;
+  background-color: #c70039;
+  width: 40%;
+  height: 75px;
+  cursor: pointer;
+  animation-name: popUp;
+  animation-duration: 5s;
+
+}
+
+.warning-message p{
+  color: white;
+  text-align: center;
+  font-size: 20px;
+}

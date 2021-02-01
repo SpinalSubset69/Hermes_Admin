@@ -30,6 +30,17 @@ export class ArticlesService {
   getArticle(id){
     return this._HttpClient.get(`http://localhost:3000/api/getNew/${id}`)
   }
+
+  modifyArticle(id, article:Article){
+    const body:Article = {
+      title: article.title,
+      summary: article.summary,
+      content: article.content,
+      author: article.author,
+      category: article.category
+    }
+  return this._HttpClient.put(`http://localhost:3000/api/modify/${id}`, body);
+  }
 }
 
 export interface Article{

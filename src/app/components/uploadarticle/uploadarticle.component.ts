@@ -20,6 +20,7 @@ category:string;
 image:any;
 article: Article;
 popup:boolean = false;
+warning:boolean = false;
 
   constructor(private _Router:Router,
              private _ArticleService:ArticlesService) { }
@@ -56,33 +57,39 @@ popup:boolean = false;
   submitArticle(){
     this.image = document.getElementById('input');
     let form = new FormData();
-
-    if(!this.title || !this.summary || !this.content || !this.author || !this.category){
-      
-    }
     form.set("image",this.image.files[0])
     console.log(this.image.files[0]);
-    this.article = {
-      title: this.title,
-      summary: this.summary,
-      content: this.content,
-      author: this.author,
-      category: this.category
-    }
 
-    this._ArticleService.saveArticle(this.article).subscribe((response:any) => {
-      console.log(response);
-      if(response.status === "Exitoso"){
-        this._ArticleService.uploadImage(response.newStored._id, form).subscribe((response:any) =>{
-          console.log(response);
-          if(response.status === "Exitoso"){
-            this.popup = true;            
-          }
-        });
+    if(!this.title || !this.summary || !this.content || !this.image.files[0] || !this.author || !this.category){
+      this.warning = true;
+    }else{
+      this.article = {
+        title: this.title,
+        summary: this.summary,
+        content: this.content,
+        author: this.author,
+        category: this.category.toLowerCase()
       }
-    });
+      this._ArticleService.saveArticle(this.article).subscribe((response:any) => {
+        console.log(response);
+        if(response.status === "Exitoso"){
+          this._ArticleService.uploadImage(response.newStored._id, form).subscribe((response:any) =>{
+            console.log(response);
+            if(response.status === "Exitoso"){
+              this.popup = true;
+            }
+          });
+        }
+      });
+    }
+  }
+  closePopUp(){
+    this.popup = false;
   }
 
+  closeWarning(){
+    this.warning = false;
+  }
 
 
   goMenu(){

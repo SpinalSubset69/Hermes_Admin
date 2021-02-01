@@ -5,9 +5,14 @@
         <img (click)="goMenu()" src="../../../assets/arrow.png"alt="">
         <p>Regresar</p>
       </div>
-      <div *ngIf="popup" class="pop-up">
+      <div (click)="closePopUp()" *ngIf="popup" class="pop-up">
         <div class="message">
           <p>Noticia subida con éxito a la base de datos.</p>
+        </div>
+      </div>
+      <div (click)="closeWarning()" *ngIf="warning" class="warning">
+        <div class="warning-message">
+          <p>Faltan datos para subir la noticia</p>
         </div>
       </div>
     </div>
