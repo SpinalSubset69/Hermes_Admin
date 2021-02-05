@@ -50,7 +50,7 @@ export class EditarticleComponent implements OnInit {
   }
 
   getImage(){
-    return `http://localhost:3000/api/getImage/${this.imageName}`
+    return `https://hermesarticles-backend.herokuapp.com/api/getImage/${this.imageName}`
   }
 
   updateArticle(){

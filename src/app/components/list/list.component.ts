@@ -16,7 +16,7 @@ export class ListComponent implements OnInit {
 
   }
   getImage(){
-    return `http://localhost:3000/api/getImage/${this.article.image}`
+    return `https://hermesarticles-backend.herokuapp.com/api/getImage/${this.article.image}`
   }
 
   goToEdit(){
