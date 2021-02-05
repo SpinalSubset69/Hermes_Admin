@@ -5,11 +5,12 @@ import {HttpClient, HttpParams } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ArticlesService {
+  baseUri = 'https://hermesarticles-backend.herokuapp.com/api/';
 
   constructor(private _HttpClient: HttpClient) { }
 
   getAllNews(){
-    return this._HttpClient.get('http://localhost:3000/api/getAllNews');
+    return this._HttpClient.get(`${this.baseUri}getAllNews`);
   }
 
   saveArticle(article:Article){
@@ -20,15 +21,15 @@ export class ArticlesService {
       author: article.author,
       category: article.category
     }
-    return this._HttpClient.put('http://localhost:3000/api/saveNew', body);
+    return this._HttpClient.put(`${this.baseUri}saveNew`, body);
   }
 
   uploadImage(id, formdata){
-    return this._HttpClient.post(`http://localhost:3000/api/uploadImage/${id}`, formdata);
+    return this._HttpClient.post(`${this.baseUri}uploadImage/${id}`, formdata);
   }
 
   getArticle(id){
-    return this._HttpClient.get(`http://localhost:3000/api/getNew/${id}`)
+    return this._HttpClient.get(`${this.baseUri}getNew/${id}`)
   }
 
   modifyArticle(id, article:Article){
@@ -39,7 +40,7 @@ export class ArticlesService {
       author: article.author,
       category: article.category
     }
-  return this._HttpClient.put(`http://localhost:3000/api/modify/${id}`, body);
+  return this._HttpClient.put(`${this.baseUri}modify/${id}`, body);
   }
 }
 

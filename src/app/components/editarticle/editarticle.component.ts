@@ -22,7 +22,8 @@ export class EditarticleComponent implements OnInit {
   image:any;
   popup:boolean = false;
   warning:boolean = false;
-
+  imageName:string;
+  imageLoaded:boolean = false;
   onTitleChange(event){
     this.title = event.target.value;
     console.log(this.title);
@@ -49,7 +50,7 @@ export class EditarticleComponent implements OnInit {
   }
 
   getImage(){
-    return `http://localhost:3000/api/getImage/${this.article.image}`
+    return `http://localhost:3000/api/getImage/${this.imageName}`
   }
 
   updateArticle(){
@@ -104,7 +105,7 @@ export class EditarticleComponent implements OnInit {
 
   constructor(private _ActivatedRoute: ActivatedRoute,
               private _ArticleService: ArticlesService,
-              private _Router:Router) { }
+              private _Router:Router) {}
 
   ngOnInit(): void {
     this._ActivatedRoute.params.subscribe(params => {
@@ -112,6 +113,8 @@ export class EditarticleComponent implements OnInit {
       console.log(this.id);
       this._ArticleService.getArticle(this.id).subscribe((response:any) => {
         this.article = response.article;
+        this.imageName = this.article.image;
+        this.imageLoaded = true;
         this.content_split = response.article.content.split('\n');
         console.log(this.article);
         console.log(this.content_split);

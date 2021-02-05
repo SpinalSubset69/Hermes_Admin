@@ -19,7 +19,7 @@
 
 
   <div *ngIf="noticia" class="noticia-container">
-    <img [src]="getImage()" alt="">
+    <img *ngIf="imageLoaded" [src]="getImage()" alt="">
     <div class="title">
       <h1>{{ article.title }}</h1>
     </div>
@@ -34,7 +34,7 @@
         <p>Autor: {{ article.author }}</p>
       </div>
       <div class="date">
-        <p>Fecha: {{article.date}}</p>
+        <p>Fecha: {{article.date | date}}</p>
       </div>
     </div>
     <button (click)="flipEdit()" class="ui fluid primary button">Editar</button>
@@ -57,7 +57,7 @@
     </div>
     <div class="field">
       <label>Categoría:</label>
-        <input type="text" (keyup)="onCategoryChange($event)" placeholder="Autor">
+        <input type="text" (keyup)="onCategoryChange($event)" placeholder="categoría">
     </div>
     <div class="field">
         <label>Autor de la nota:</label>
