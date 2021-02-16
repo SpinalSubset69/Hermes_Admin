@@ -18,29 +18,33 @@
     </div>
     <div class="field">
       <label>Título de la nota:</label>
-      <input type="text" (keyup)="onTitleChange($event)" placeholder="Titulo">
+      <input type="text" (paste)="onTitleChange($event)" (keyup)="onTitleChange($event)" placeholder="Titulo">
     </div>
     <div class="field">
       <label>Adelanto de la Nota:</label>
-      <input type="text" (keyup)="onSummaryChange($event)" placeholder="Adelanto">
+      <input type="text" (paste)="onSummaryChange($event)" (keyup)="onSummaryChange($event)" placeholder="Adelanto">
     </div>
     <div class="field">
       <label>Contenido de la nota:</label>
-      <textarea id="content" (keyup)="onContentChange($event)" cols="30" rows="10"></textarea>
+      <textarea id="content" (paste)="onContentChange($event)" (keyup)="onContentChange($event)" cols="30" rows="10"></textarea>
     </div>
     <div class="field">
       <label>Categoría:</label>
-        <input type="text" (keyup)="onCategoryChange($event)" placeholder="Categría">
+        <input type="text" (paste)="onCategoryChange($event)" (keyup)="onCategoryChange($event)" placeholder="Categría">
     </div>
     <div class="field">
         <label>Autor de la nota:</label>
-        <input type="text" (keyup)="onAuthorChange($event)" placeholder="Autor">
+        <input type="text" (paste)="onAuthorChange($event)" (keyup)="onAuthorChange($event)" placeholder="Autor">
     </div>
     <div class="field">
         <label>Imagen:</label>
         <input type="file" name="articleImage" id="input" value="image">
     </div>
-    <button (click)="submitArticle()" class="ui fluid primary button">Enviar</button>
+    <button (click)="submitArticle()" [disabled]="sending" class="ui fluid primary button">
+      <i [ngClass]="{'save icon': !sending, 'sync icon rotate':sending}"></i>
+     <span *ngIf="!sending">Enviar</span>
+     <span *ngIf="sending">Enviando Nota</span>
+    </button>
   </div>
 </div>
 

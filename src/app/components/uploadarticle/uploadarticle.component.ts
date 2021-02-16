@@ -1,4 +1,3 @@
-import { StringMap } from '@angular/compiler/src/compiler_facade_interface';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -11,7 +10,7 @@ import { ArticlesService, Article } from '../../service/articles.service';
   styleUrls: ['./uploadarticle.component.css']
 })
 export class UploadarticleComponent implements OnInit {
-
+sending:boolean = false;
 title:string;
 summary:string;
 content:string;
@@ -51,14 +50,16 @@ warning:boolean = false;
 
   onCategoryChange(event){
     this.category = event.target.value;
-    console.log(this.category);
+    this.category.toLowerCase();
+    console.log(this.category.toLowerCase());
   }
 
   submitArticle(){
+    this.sending = true;
     this.image = document.getElementById('input');
     let form = new FormData();
     form.set("image",this.image.files[0])
-    console.log(this.image.files[0]);
+
 
     if(!this.title || !this.summary || !this.content || !this.image.files[0] || !this.author || !this.category){
       this.warning = true;
@@ -77,6 +78,7 @@ warning:boolean = false;
             console.log(response);
             if(response.status === "Exitoso"){
               this.popup = true;
+              this.sending = false;
             }
           });
         }
