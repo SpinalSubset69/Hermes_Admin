@@ -63,6 +63,7 @@ warning:boolean = false;
 
     if(!this.title || !this.summary || !this.content || !this.image.files[0] || !this.author || !this.category){
       this.warning = true;
+      this.sending = false;
     }else{
       this.article = {
         title: this.title,
